@@ -62,7 +62,7 @@ the example application throughout this task.
    kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000 &
    ```
 
-   Visit [http://localhost:3000/dashboard/db/istio-dashboard](http://localhost:3000/dashboard/db/istio-dashboard) in your web browser.
+   Visit [http://localhost:3000/dashboard/file/istio-dashboard.json](http://localhost:3000/dashboard/file/istio-dashboard.json) in your web browser.
 
    The Istio Dashboard will look similar to:
 
@@ -100,13 +100,13 @@ the example application throughout this task.
 
 ### About the Grafana add-on
 
-The Grafana add-on is a pre-configured instance of Grafana. The base image
-([`grafana/grafana:4.1.2`](https://hub.docker.com/r/grafana/grafana/)) has been
-modified to start with both a Prometheus data source and the Istio Dashboard
-installed. The base install files for Istio, and Mixer in particular, ship with
-a default configuration of global (used for every service) metrics. The Istio
-Dashboard is built to be used in conjunction with the default Istio metrics
-configuration and a Prometheus backend.
+The Grafana add-on is a pre-configured instance of Grafana. The image
+([`grafana/grafana:4.6.3`](https://hub.docker.com/r/grafana/grafana/))
+starts with both a Prometheus data source and the Istio Dashboard
+installed. The base install files for Istio, and Mixer in particular,
+ship with a default configuration of global (used for every service)
+metrics. The Istio Dashboard is built to be used in conjunction with
+the default Istio metrics configuration and a Prometheus backend.
 
 The Istio Dashboard consists of three main sections:
 1. A Global Summary View. This section provides high-level summary of HTTP
